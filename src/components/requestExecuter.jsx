@@ -125,7 +125,7 @@ const RequestExecuter = ({ transactionId, handleBack }) => {
       const session = setTimeout(() => {
         getSession();
         requestCount.current += 1;
-      }, 3000);
+      }, 4000);
       if (requestCount.current > 2 && !showError) {
         clearTimeout(session);
         toast.error("Response timeout");
@@ -149,7 +149,8 @@ const RequestExecuter = ({ transactionId, handleBack }) => {
         item.defaultValue ||
         call?.businessPayload?.[item.key] ||
         getValues(item.key) ||
-        tempDefaultValue.current[item.key]
+        tempDefaultValue.current[item.key] ||
+        !item?.required
       ) {
         continue;
       }
