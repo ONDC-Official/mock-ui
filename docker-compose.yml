@@ -1,8 +1,7 @@
+version: '3.8'
 services:
-  mock-ui:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  app:
+    image: 577638354424.dkr.ecr.ap-south-1.amazonaws.com/dev/igm-mock-ui:latest  # Will be dynamically updated by Jenkins
     container_name: ${SERVICE_NAME}
     ports:
       - "${PORT}:80"
